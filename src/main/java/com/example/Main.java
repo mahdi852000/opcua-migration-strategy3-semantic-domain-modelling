@@ -9,7 +9,7 @@ public class Main {
 
             gateway.startup().get();
             System.out.println("OPC UA Gateway Started.");
-            System.out.println("Endpoint: opc.tcp://localhost:4840/legacy-machine");
+            System.out.println("Endpoint: opc.tcp://127.0.01:4843/semantic-domain");
             System.out.println("Press Enter to stop the server...");
             System.in.read();
             gateway.shutdown().get();

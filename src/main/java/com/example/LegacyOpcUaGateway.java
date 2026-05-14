@@ -12,6 +12,7 @@ import org.eclipse.milo.opcua.stack.core.types.enumerated.MessageSecurityMode;
 import org.eclipse.milo.opcua.stack.core.types.structured.BuildInfo;
 import org.eclipse.milo.opcua.stack.transport.server.tcp.OpcTcpServerTransport;
 import org.eclipse.milo.opcua.stack.transport.server.tcp.OpcTcpServerTransportConfig;
+import static org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.Unsigned.uint;
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -22,7 +23,7 @@ import static org.eclipse.milo.opcua.sdk.server.OpcUaServerConfig.USER_TOKEN_POL
 public class LegacyOpcUaGateway {
     private final LegacyMachineSimulator simulator;
     private final LegacyMachineNamespace namespace;
-    private static final int TCP_BIND_PORT = 4840;
+    private static final int TCP_BIND_PORT = 4843;
 
     public final OpcUaServer server;
 
@@ -69,9 +70,9 @@ public class LegacyOpcUaGateway {
 
         EndpointConfig endpoint = EndpointConfig.newBuilder()
                 .setBindAddress("0.0.0.0")
-                .setHostname("localhost")
+                .setHostname("127.0.0.1")
                 .setBindPort(TCP_BIND_PORT)
-                .setPath("/legacy-machine")
+                .setPath("/semantic-domain")
                 .setSecurityPolicy(SecurityPolicy.None)
                 .setSecurityMode(MessageSecurityMode.None)
                 .setTransportProfile(TransportProfile.TCP_UASC_UABINARY)
