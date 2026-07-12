@@ -12,7 +12,7 @@ import org.eclipse.milo.opcua.stack.core.types.enumerated.MessageSecurityMode;
 import org.eclipse.milo.opcua.stack.core.types.structured.BuildInfo;
 import org.eclipse.milo.opcua.stack.transport.server.tcp.OpcTcpServerTransport;
 import org.eclipse.milo.opcua.stack.transport.server.tcp.OpcTcpServerTransportConfig;
-import static org.eclipse.milo.opcua.stack.core.types.builtin.unsigned.Unsigned.uint;
+
 
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -82,6 +82,9 @@ public class LegacyOpcUaGateway {
         endpoints.add(endpoint);
 
         return endpoints;
+    }
+    public LegacyMachineNamespace getNamespace() {
+        return namespace;
     }
 
     public CompletableFuture<OpcUaServer> startup() {

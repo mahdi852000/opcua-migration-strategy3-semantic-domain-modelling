@@ -31,7 +31,15 @@ public class LegacyMachineSimulator {
     private int communicationRetryCounter = 0;
     private final long startTimeMillis = System.currentTimeMillis();
 
-    private String deviceIdentity = "FeederController-Prototype-01";
+    private final String deviceIdentity;
+
+    public LegacyMachineSimulator() {
+        this("FeederController-Prototype-01");
+    }
+
+    public LegacyMachineSimulator(String deviceIdentity) {
+        this.deviceIdentity = deviceIdentity;
+    }
 
     public MachineState getCurrentState() {
         return currentState;
